@@ -1,6 +1,6 @@
 # Pool Check
 
-The script that connect to mining pools and return information when data was received.
+This script connects to mining pools and save information when a new work was received.
 
 # Requirements
 
