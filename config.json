@@ -1,0 +1,15 @@
+{
+  "coin": "IRON",
+  "pools": [
+    "de.ironfish.herominers.com:1145",
+    "iron-euro.f2pool.com:1500",
+    "iron.kryptex.network:7777",
+    "iron.hk.zk.work:60006",
+    "iron.fpmp.net:8888",
+    "stratum.tw-pool.com:60001",
+    "eu.ezil.me:50710",
+    "ironfish.ss.dxpool.com:9046",
+    "iron.ss.hashpool.site:8133",
+    "ironfish.666pool.com:5788"
+  ]
+}
