@@ -21,17 +21,16 @@ def decode(data):
 
 
 async def save_work(pool, height):
-    now = datetime.now()
+    now = datetime.utcnow().timestamp()
     if height not in history:
-        # print('-' * 120)
         best[height] = now
     if pool in history[height]:
         return
     history[height][pool] = now
-    diff = (now - best[height]).total_seconds()
+    diff = now - best[height]
     block_time_pct = 100 * diff / 60
     async with aiofiles.open('res.txt', mode='a') as f:
-        await f.write(f'{height},{pool},{datetime.now()},{diff:.2f},{block_time_pct:.2f}%\n')
+        await f.write(f'{height},{pool},{now},{diff:.2f},{block_time_pct:.2f}%\n')
 
 
 async def connect(pool):
