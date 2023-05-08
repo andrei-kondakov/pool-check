@@ -35,7 +35,12 @@ async def save_work(pool, height):
 
 async def connect(pool):
     host, port = pool.split(':')
-    reader, writer = await asyncio.open_connection(host, port)
+    try:
+        reader, writer = await asyncio.open_connection(host, port)
+    except Exception as ex:
+        print(f'{pool}\t{ex}')
+        await connect(pool)
+        return
     writer.write(encode(
         {"id": 0, "method": "mining.subscribe",
          "body": {"version": 2, "agent": "Rigel/1.4.1", "name": "wrk",
@@ -43,7 +48,8 @@ async def connect(pool):
     while True:
         try:
             data = await reader.readline()
-        except Exception:
+        except Exception as ex:
+            print(f'{pool}\t{ex}')
             break
 
         msg = decode(data)
