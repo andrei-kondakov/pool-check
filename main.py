@@ -1,12 +1,12 @@
 import asyncio
 import json
-from datetime import datetime
+import time
 from collections import defaultdict
 
 import aiofiles
 
 history = defaultdict(dict)  # height -> pool -> dt
-best = {} # height -> dt
+best_ms = {} # height -> dt
 
 
 def encode(data):
@@ -21,16 +21,17 @@ def decode(data):
 
 
 async def save_work(pool, height):
-    now = datetime.utcnow().timestamp()
+    now_ms = round(time.time() * 1000)
     if height not in history:
-        best[height] = now
+        best_ms[height] = now_ms
     if pool in history[height]:
         return
-    history[height][pool] = now
-    diff = now - best[height]
-    block_time_pct = 100 * diff / 60
+    history[height][pool] = now_ms
+    diff_ms = now_ms - best_ms[height]
+    block_time_ms = 60 * 1000
+    block_time_pct = 100 * diff_ms / block_time_ms
     async with aiofiles.open('res.txt', mode='a') as f:
-        await f.write(f'{height},{pool},{now},{diff:.2f},{block_time_pct:.2f}%\n')
+        await f.write(f'{height},{pool},{now_ms},{diff_ms},{block_time_pct:.2f}%\n')
 
 
 async def connect(pool):
