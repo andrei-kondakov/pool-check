@@ -12,8 +12,10 @@ This script connects to mining pools and save information when a new work was re
 
 # Configuration
 
-Please specify pools in config.json.
+Please specify pools in config/<coin>.json.
 
 # How to run
 
-    python main.py
+    python main.py <coin>
+    
+    python main.py iron

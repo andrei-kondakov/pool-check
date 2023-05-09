@@ -1,5 +1,4 @@
 {
-  "coin": "IRON",
   "pools": [
     "iron-euro.f2pool.com:1500",
     "iron.kryptex.network:7777",
