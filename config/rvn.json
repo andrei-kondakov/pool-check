@@ -1,0 +1,16 @@
+{
+  "pools": [
+    "rvn.2miners.com:6060",
+    "rvn.hiveon.com:8888",
+    "stratum-ravencoin.flypool.org:3333",
+    "eu.ravenminer.com:3838",
+    "raven.f2pool.com:3636",
+    "rvn-eu1.nanopool.org:12222",
+    "europe.kawpow-hub.miningpoolhub.com:20611",
+    "rvn.kryptex.network:7777",
+    "pool.eu.woolypooly.com:55555",
+    "de.ravencoin.herominers.com:1140",
+    "rvn-eu.minerpool.pro:16059",
+    "rvn-eu.cruxpool.com:9999"
+  ]
+}
