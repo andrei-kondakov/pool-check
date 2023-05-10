@@ -12,11 +12,11 @@ async def connect(pool):
         print(f'{pool}\t{ex}')
         await connect(pool)
         return
-    writer.write(encode({"id": 1, "method": "mining.subscribe", "params": ["NBMiner/39.7"]}))
+    writer.write(encode({"id": 1, "method": "mining.subscribe", "params": ["lolMiner 1.69"]}))
     writer.write(encode({
         'id': 2,
         'method': 'mining.authorize',
-        'params': [f'9fdB2wPpNmamDqzX9EkJYWS7FY7ntcyGcNERMPazZMZkph1TU5Y', "x"]
+        'params': [f'nexa:nqtsq5g5s6v9upg6audsee28yuca4wyjddp6u4nzurr58466', "x"]
     }))
 
     while True:
@@ -36,8 +36,8 @@ async def connect(pool):
         if method != 'mining.notify':
             continue
 
-        height = msg['params'][1]
-        asyncio.create_task(save_work('erg', pool, height, received_at, 120))
+        height = msg['params'][2]
+        asyncio.create_task(save_work('nexa', pool, height, received_at, 120))
 
     print(f'Reconnecting to {pool}')
     await connect(pool)

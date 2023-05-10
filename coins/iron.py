@@ -22,6 +22,7 @@ async def connect(pool):
             print(f'{pool}\t{ex}')
             break
 
+        received_at = round(time.time() * 1000)
         msg = decode(data)
         if not msg:
             break
@@ -32,7 +33,6 @@ async def connect(pool):
             continue
 
         height = int.from_bytes(bytes.fromhex(msg['body']['header'][16:24]), 'little')
-        received_at = round(time.time() * 1000)
         asyncio.create_task(save_work('iron', pool, height, received_at, 60))
 
     print(f'Reconnecting to {pool}')

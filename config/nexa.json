@@ -1,0 +1,10 @@
+{
+  "pools": [
+    "nexa.kryptex.network:7777",
+    "pool.eu.woolypooly.com:3124",
+    "stratum-eu.rplant.xyz:7092",
+    "de.vipor.net:5084",
+    "acc-pool.pw:16011",
+    "stratum.tw-pool.com:20001"
+  ]
+}
