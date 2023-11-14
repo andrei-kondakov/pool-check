@@ -16,6 +16,7 @@ Please specify pools in config/<coin>.json.
 
 # How to run
 
+    ulimit -n 1000000
     python main.py <coin>
     
     python main.py iron
